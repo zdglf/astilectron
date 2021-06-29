@@ -2,7 +2,7 @@
 'use strict'
 
 const electron = require('electron')
-const {app, BrowserWindow, ipcMain, Menu, MenuItem, Tray, dialog, Notification} = electron
+const {app, BrowserWindow, ipcMain, Menu, MenuItem, Tray, dialog, Notification, shell} = electron
 const consts = require('./src/consts.js')
 const client = require('./src/client.js')
 const readline = require('readline')
