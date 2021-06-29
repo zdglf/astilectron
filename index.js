@@ -2,7 +2,7 @@
 'use strict'
 
 const electron = require('electron')
-const {app, BrowserWindow, ipcMain, Menu, MenuItem, Tray, dialog, Notification, shell} = electron
+const {app, BrowserWindow, ipcMain, Menu, MenuItem, Tray, dialog, Notification} = electron
 const consts = require('./src/consts.js')
 const client = require('./src/client.js')
 const readline = require('readline')
@@ -456,6 +456,7 @@ function windowCreateFinish(json) {
     elements[json.targetID].webContents.on('did-finish-load', () => {
         elements[json.targetID].webContents.executeJavaScript(
             `const {ipcRenderer} = require('electron')
+            const {dialog, shell, clipboard} = require('electron').remote
             var astilectron = {
                 onMessageOnce: false,
                 onMessage: function(callback) {
